@@ -1,0 +1,11 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.nav-box {
+    padding: 1%;
+    background-color: #7b904b;
+    display: flex;
+    justify-content: space-between;
+}

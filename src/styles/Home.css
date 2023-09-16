@@ -1,0 +1,119 @@
+html {
+	scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: #dbd2e0;
+}
+
+.home-image {
+    min-height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url(../images/tree2.jpeg);
+}
+
+.two-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 2% 3%;
+}
+
+.two-header nav {
+    display: inline-block;
+}
+
+.left-home-logo {
+    display: flex;
+    color: #dbd2e0;
+    font-size: 14px;
+}
+
+.home-title {
+    text-align: center;
+    color: #dbd2e0;
+    font-size: 33px;
+    margin-top: 8%;
+}
+
+.navButtons{
+    margin-right: 3%;
+    padding-top: 1.5%;
+}
+
+.navButtons a{
+    padding: 5% 6%;
+    color: #dbd2e0;
+    border: 1px;
+    border-style: solid;
+    margin-right: 20px;
+    border-radius: 20px;
+    transition: all 0.5s;
+    user-select: none;
+    font-size: 18px;
+}
+
+.navButtons a:hover {
+    background-color: rgb(9, 155, 9);
+    color: #273B09;
+}
+
+.secondLiner {
+    color: #dbd2e0;
+    font-size: 12px;
+    text-align: center;
+}
+
+.intro-titles {
+    color: #58641d;
+    display: flex;
+    justify-content: space-between;
+    padding: 7% 5%;
+}
+
+.intro-titles h1 {
+    font-size: 40px;
+}
+
+.companies {
+    display: block;
+    margin: auto;
+}
+
+.last-statement {
+    color: #58641d;
+    font-size: 40px;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.question {
+    color: #58641d;
+    text-align: center;
+}
+
+.center-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    background-color: #273b09;
+    font-size: 20px;
+    padding: 1% 2%;
+    border-radius: 15px;
+    color: #dbd2e0;
+    transition: all 0.5s;
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
+
+button:hover {
+    background-color: rgb(9, 155, 9);
+    
+}

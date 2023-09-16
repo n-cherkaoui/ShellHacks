@@ -1,0 +1,22 @@
+body {
+    background-color: #dbd2e0;;
+}
+
+.contact-titles {
+    color: #273b09;
+    margin-left: 2%;
+}
+
+.first-title {
+    margin-top: 2%;
+}
+
+.team {
+    display: flex;
+    justify-content: space-around;
+}
+
+.member {
+    display: flex;
+    flex-direction: column;
+}
