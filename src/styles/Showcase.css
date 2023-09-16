@@ -1,6 +1,18 @@
 .result {
     display: flex;
     justify-content: space-between;
+    padding: 2% 10%;
+}
+
+.result::before {
+    content: "";
+    position: absolute;
+    top: 63%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 50%;
+    width: 1px;
+    background-color: black;
 }
 
 .result-title {
@@ -11,4 +23,13 @@
 .result-1 {
     display: flex;
     justify-content: space-around;
+}
+
+.result-1 h2{
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.result-2 {
+    color: blue;
 }
