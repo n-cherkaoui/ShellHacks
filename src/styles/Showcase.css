@@ -1,7 +1,7 @@
 .result {
+    padding: 2% 10%;
     display: flex;
     justify-content: space-between;
-    padding: 2% 10%;
 }
 
 .result::before {
@@ -23,13 +23,20 @@
 .result-1 {
     display: flex;
     justify-content: space-around;
+    text-decoration: solid;
+    text-decoration-line: underline;
+    text-decoration-thickness: 4px;
+    text-underline-offset: 2px;
+    text-decoration-color: #7b904b;
 }
 
 .result-1 h2{
+    
     margin-left: 60px;
     margin-right: 60px;
 }
 
 .result-2 {
-    color: blue;
+    width: 100%;
+    text-align: center;
 }

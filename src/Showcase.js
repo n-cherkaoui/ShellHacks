@@ -24,6 +24,8 @@ const Showcase = () => {
                         <h2>Shares</h2>
                     </div> 
 
+                    
+
                     <div className="result-2">
                         <h3>Your expected return is: </h3>
                     </div> 

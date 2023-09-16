@@ -10,7 +10,7 @@ const Home = () => {
                 <div className="two-header">
                     <div className="left-home-logo">
                         <img src={Green} width="80px" alt="zcp-symbol"></img>
-                        <h1>Greenvesting</h1>
+                        <h1>VerdeVentures</h1>
                     </div>
 
                     <div className="navButtons">
@@ -39,12 +39,12 @@ const Home = () => {
 
                 <h2>
                     Using advanced machine learning algorithms and web scraping <br></br>
-                    techniques, our project: "Greenvesting" is a dynamic portfolio <br></br>
+                    techniques, our project: "VerdeVentures" is a dynamic portfolio <br></br>
                     managenet system tailored for the concious investor. It continuously <br></br>
                     monitors, and validates stocks from companies that have either<br></br>
                     pledged or achieved a carbon-zero footprint. <br></br>
                     By bringing together vast data streams and analyzing corporate <br></br>
-                    sustainability commitments, Greenvesting ensures your investments <br></br>
+                    sustainability commitments, VerdeVentures ensures your investments <br></br>
                     align with a greener future.
                 </h2>
             </div>
@@ -52,7 +52,7 @@ const Home = () => {
             <img src={Companies} className="companies" alt="eco_friendly_companies"></img>
 
             <h1 className="last-statement">
-                Greenvesting aims to not only incentivize the support<br></br>
+                VerdeVentures aims to not only incentivize the support<br></br>
                 for companies that aim to help our environment<br></br>
                 by minimizing the impact in the areas of carbon, water<br></br>
                 and waste, but it also incentizes your finances to<br></br>

@@ -8,7 +8,7 @@ const NavBar = () => {
         <div className="nav-box">
             <div className="left-home-logo">
                 <img src={Green} width="80px" alt="zcp-symbol"></img>
-                <h1>Greenvesting</h1>
+                <h1>VerdeVentures</h1>
             </div>
 
             <div className="navButtons">

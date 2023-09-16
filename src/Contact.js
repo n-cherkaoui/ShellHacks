@@ -14,18 +14,26 @@ const Contact = () => {
             <div className="team">
                 <div className="member">
                     <h3>Nawfal Cherkaoui Elmalki</h3>
+                    <p>Github</p>
+                    <p>LinkedIn</p>
                 </div>
 
                 <div className="member">
                     <h3>Santiago </h3>
+                    <p>Github</p>
+                    <p>LinkedIn</p>
                 </div>
 
                 <div className="member">
                     <h3>Saul Espinoza Nalvarte</h3>
+                    <p>Github</p>
+                    <p>LinkedIn</p>
                 </div>
 
                 <div className="member">
                     <h3>George Doujaiji</h3>
+                    <p>Github</p>
+                    <p>LinkedIn</p>
                 </div>
             </div>
         </div>
