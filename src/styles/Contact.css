@@ -25,4 +25,5 @@ body {
 .member img {
     width: 250px;
     border-radius: 5%;
+    height: 400px;
 }
