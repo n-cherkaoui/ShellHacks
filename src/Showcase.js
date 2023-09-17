@@ -3,17 +3,26 @@ import FirstTable from "./FirstTable";
 import "./styles/Home.css";
 import "./styles/Showcase.css";
 import {useState} from "react";
+import Graph from "./images/graph.png";
+import api from "./api";
 
 const Showcase = () => {
     const [portfolio, setPortfolio] = useState(false);
     const [firstArray, setFirstArray] = useState([]);
+
+    const fetchData = async () => {
+        const response = await api.get("/stocks");
+        console.log(response.data)
+        setFirstArray(response.data)
+        console.log(firstArray)
+    };
 
     return (
         <div>
             <NavBar></NavBar>
 
             <div className="center-button" onClick={() => setPortfolio(true)}>
-                <button>Get your portfolio</button>
+                <button onClick={fetchData}>Get your portfolio</button>
             </div>
 
             {portfolio !== false ? <div>
@@ -27,11 +36,12 @@ const Showcase = () => {
                             <h2>Shares</h2>
                         </div> 
 
-                        <h1>===PUT THE TABLE MAP HERE===</h1>
+                        {Object.entries(firstArray).map(([key, value]) => <FirstTable id={key} stockName={key} price={value}></FirstTable>)}
                     </div>
                     
 
                     <div className="result-2">
+                        <img src={Graph} alt="graph" width="600px"></img>
                         <h2>Your expected return is: </h2>
                     </div> 
                 </div>

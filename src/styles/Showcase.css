@@ -1,5 +1,5 @@
 .result {
-    padding: 2% 10%;
+    padding: 2% 8%;
     display: flex;
     justify-content: space-between;
 }
@@ -32,12 +32,11 @@
 
 .result-1 h2{
     
-    margin-left: 60px;
-    margin-right: 60px;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
 .result-2 {
-    width: 100%;
+    
     text-align: center;
 }
-

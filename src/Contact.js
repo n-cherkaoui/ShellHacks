@@ -17,28 +17,28 @@ const Contact = () => {
 
             <div className="team">
                 <div className="member">
-                    <img src={Photo1}></img>
+                    <img src={Photo1} alt="photo1"></img>
                     <h3>Nawfal Cherkaoui Elmalki</h3>
                     <p>Github</p>
                     <p>LinkedIn</p>
                 </div>
 
                 <div className="member">
-                    <img src={Photo2}></img>
+                    <img src={Photo2} alt="photo2"></img>
                     <h3>Santiago Acosta</h3>
                     <a href="https://github.com/santiago1595/">Github</a>
                     <p>LinkedIn</p>
                 </div>
 
                 <div className="member">
-                    <img src={Photo3}></img>
+                    <img src={Photo3} alt="photo3"></img>
                     <h3>Saul Espinoza Nalvarte</h3>
                     <a href="https://github.com/SaulEspinoza7">Github</a>
                     <p>LinkedIn</p>
                 </div>
 
                 <div className="member">
-                    <img src={Photo4}></img>
+                    <img src={Photo4} alt="photo4"></img>
                     <h3>George Doujaiji</h3>
                     <p>Github</p>
                     <p>LinkedIn</p>

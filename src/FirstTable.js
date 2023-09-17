@@ -1,8 +1,11 @@
-const FirstTable = () => {
+import "./styles/FirstTable.css"
+
+const FirstTable = (props) => {
     return (
-        <div>
-            <h2>Test1</h2>
-            <h2>Test2</h2>
+        <div className="table-styling">
+            <h2>{props.stockName}</h2>
+
+            <h2>{props.price}</h2>
         </div>
     );
 }
