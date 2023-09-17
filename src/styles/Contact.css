@@ -21,3 +21,8 @@ body {
     flex-direction: column;
     text-align: center;
 }
+
+.member img {
+    width: 250px;
+    border-radius: 5%;
+}

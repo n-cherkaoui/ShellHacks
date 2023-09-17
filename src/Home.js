@@ -62,7 +62,7 @@ const Home = () => {
             <h2 className="question">Are you ready to join us in our cause?</h2>
             
             <Link to="/show">
-            <div className="center-button">
+            <div className="center-button extra-bottom-margin">
                 
                 <button>Try it out!</button>
                 

@@ -1,5 +1,6 @@
 import NavBar from "./NavBar";
 import "./styles/Contact.css"
+import Photo1 from "./images/photo1.jpeg"
 
 const Contact = () => {
     return (

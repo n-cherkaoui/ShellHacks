@@ -5,7 +5,8 @@ import {useState} from "react";
 
 const Showcase = () => {
     const [portfolio, setPortfolio] = useState(false);
-    
+    const [firstArray, setFirstArray] = useState([]);
+
     return (
         <div>
             <NavBar></NavBar>
@@ -20,14 +21,14 @@ const Showcase = () => {
                 <div className="result">
                     <div className="result-1">
                         <h2>Stock</h2>
-                        <h2>Price</h2>
+                        
                         <h2>Shares</h2>
                     </div> 
 
                     
 
                     <div className="result-2">
-                        <h3>Your expected return is: </h3>
+                        <h2>Your expected return is: </h2>
                     </div> 
                 </div>
 

@@ -1,5 +1,6 @@
 html {
 	scroll-behavior: smooth;
+    font-family: 'Open Sans', sans-serif;;
 }
 
 a {
@@ -31,6 +32,7 @@ body {
     display: flex;
     color: #dbd2e0;
     font-size: 14px;
+    font-family: 'Roboto Slab', serif;
 }
 
 .home-title {
@@ -38,6 +40,7 @@ body {
     color: #dbd2e0;
     font-size: 33px;
     margin-top: 8%;
+    font-weight: 800;
 }
 
 .navButtons{
@@ -111,6 +114,10 @@ button {
     transition: all 0.5s;
     margin-top: 1%;
     margin-bottom: 2%;
+}
+
+.extra-bottom-margin {
+    margin-bottom: 3%;
 }
 
 button:hover {
