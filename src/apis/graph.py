@@ -9,7 +9,7 @@ def ticker_tester(start, end):
   tickers = {stock["name"]: stock["shares"] for stock in data}
 
   return tickers
-
+ 
 
 def plot_stock_prices(tickers, start_date, end_date, capital):
     # Sets up graph and gets sp500 data
