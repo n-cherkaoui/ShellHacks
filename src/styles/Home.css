@@ -33,6 +33,7 @@ body {
     color: #dbd2e0;
     font-size: 14px;
     font-family: 'Roboto Slab', serif;
+    border-radius: 10%;
 }
 
 .left-home-logo h1 {

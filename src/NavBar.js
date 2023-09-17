@@ -1,14 +1,13 @@
 import "./styles/NavBar.css"
 import "./styles/Home.css"
-import Green from "./images/vLogo.png"
+import Green from "./images/verde_logo.png"
 import {Link} from "react-router-dom"
 
 const NavBar = () => {
     return (
         <div className="nav-box">
             <div className="left-home-logo">
-                <img src={Green} width="80px" alt="zcp-symbol"></img>
-                <h1>VerdeVentures</h1>
+                <img src={Green} width="300px" alt="zcp-symbol"></img>
             </div>
 
             <div className="navButtons">
