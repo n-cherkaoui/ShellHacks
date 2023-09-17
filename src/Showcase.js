@@ -19,12 +19,17 @@ const Showcase = () => {
                 <h1 className="result-title">Here is your portfolio which protects the environment</h1>
 
                 <div className="result">
-                    <div className="result-1">
-                        <h2>Stock</h2>
-                        
-                        <h2>Shares</h2>
-                    </div> 
+                    <div>
+                        <div className="result-1">
+                            <h2>Stock</h2>
+                            
+                            <h2>Shares</h2>
+                        </div> 
 
+                        <h2>Hola</h2>
+
+                        <h2>Gon</h2>
+                    </div>
                     
 
                     <div className="result-2">
