@@ -1,71 +1,73 @@
-# Import necessary libraries
-import pandas as pd
-import numpy as np
-from sklearn.cluster import KMeans
-import matplotlib.pyplot as plt
-from pandas.io.excel import read_excel
-from pandas_datareader import data as pdr
-import yfinance as yf
-import datetime
-from yahooquery import search
+# # Import necessary libraries
+# import pandas as pd
+# import numpy as np
+# from sklearn.cluster import KMeans
+# import matplotlib.pyplot as plt
+# from pandas.io.excel import read_excel
+# from pandas_datareader import data as pdr
+# import yfinance as yf
+# import datetime
+# from yahooquery import search
 
-# Define a function to fetch stock universe data
-def stock_universe(tickers, start_date, end_date):
-    start_date = datetime.datetime.strptime(start_date, "%Y-%m-%d")
-    end_date = datetime.datetime.strptime(end_date, "%Y-%m-%d")
+# # Define a function to fetch stock universe data
+# def stock_universe(tickers, start_date, end_date):
+#     start_date = datetime.datetime.strptime(start_date, "%Y-%m-%d")
+#     end_date = datetime.datetime.strptime(end_date, "%Y-%m-%d")
 
-    data = pdr.get_data_yahoo(tickers, start=start_date, end=end_date, period="1d")
-    data = data['Close']
+#     data = pdr.get_data_yahoo(tickers, start=start_date, end=end_date, period="1d")
+#     data = data['Close']
 
-    return data
+#     return data
 
-# Define a function to get tickers from company names
-def get_ticker(df):
-    df_upper_case = pd.DataFrame(df)
-    df_upper_case['comps'] = df.str.upper()
-    df_upper_case['info'] = ''
-    df_upper_case['tickers'] = ''
+# # Define a function to get tickers from company names
+# def get_ticker(df):
+#     df_upper_case = pd.DataFrame(df)
+#     print(df_upper_case)
+#     df_upper_case['comps'] = df.str.upper()
+#     df_upper_case['info'] = ''
+#     df_upper_case['tickers'] = ''
 
-    for i, row in df_upper_case.iterrows():
-        search_results = search(row['comps'])
-        if 'quotes' in search_results:
-            quotes = search_results['quotes']
-            if quotes:
-                df_upper_case.at[i, 'info'] = quotes[0]
-                df_upper_case.at[i, 'tickers'] = quotes[0]['symbol']
+#     for i, row in df_upper_case.iterrows():
+#         print("loop")
+#         search_results = search(row['comps'])
+#         if 'quotes' in search_results:
+#             quotes = search_results['quotes']
+#             if quotes:
+#                 df_upper_case.at[i, 'info'] = quotes[0]
+#                 df_upper_case.at[i, 'tickers'] = quotes[0]['symbol']
 
-    return df_upper_case
+#     return df_upper_case
 
-# Define a function to create a diversified portfolio
-def div_port(df):
-    result_df = df.groupby('clusters').head(1)[['ticker', 'clusters']]
-    return result_df['ticker']
+# # Define a function to create a diversified portfolio
+# def div_port(df):
+#     result_df = df.groupby('clusters').head(1)[['ticker', 'clusters']]
+#     return result_df['ticker']
 
-# Define a function to fetch adjusted stock universe data
-def stock_universe_adj(tickers, start_date, end_date):
-    start_date = datetime.datetime.strptime(start_date, "%Y-%m-%d")
-    end_date = datetime.datetime.strptime(end_date, "%Y-%m-%d")
+# # Define a function to fetch adjusted stock universe data
+# def stock_universe_adj(tickers, start_date, end_date):
+#     start_date = datetime.datetime.strptime(start_date, "%Y-%m-%d")
+#     end_date = datetime.datetime.strptime(end_date, "%Y-%m-%d")
 
-    data = pdr.get_data_yahoo(tickers, start=start_date, end=end_date, period="1d")
-    data = data['Adj Close']
+#     data = pdr.get_data_yahoo(tickers, start=start_date, end=end_date, period="1d")
+#     data = data['Adj Close']
 
-    return data
+#     return data
 
-# Main script
-if __name__ == "__main__":
-    # Load data from a file
-    df_green = pd.read_excel("https://download.zerotracker.net/csv/snapshot_2023-09-16_03-09-25.xlsx")
-    df_green = df_green['name']
+# # Main script
+# if __name__ == "__main__":
+#     # Load data from a file
+#     df_green = pd.read_excel("output.xlsx")
+#     df_green = df_green['name']
 
-    # Fetch ticker symbols from company names
-    df_green['ticker'] = get_ticker(df_green)
-    df_g = df_green['ticker']['tickers']
+#     # Fetch ticker symbols from company names
+#     df_green['ticker'] = get_ticker(df_green)
+#     df_g = df_green['ticker']['tickers']
 
-    # Fetch stock data
-    ticker_symbols = df_g.tolist()
-    start_date = "2018-01-01"
-    end_date = "2023-09-10"
-    stock_data = stock_universe(ticker_symbols, start_date, end_date)
+#     # Fetch stock data
+#     ticker_symbols = df_g.tolist()
+#     start_date = "2018-01-01"
+#     end_date = "2023-09-10"
+#     stock_data = stock_universe(ticker_symbols, start_date, end_date)
 
     # Data preprocessing
     # ...
@@ -80,295 +82,295 @@ if __name__ == "__main__":
     # ...
 
 
-# # -*- coding: utf-8 -*-
-# """K_Means_Diverse_Stock_Portfolio_2 (1).ipynb
+# -*- coding: utf-8 -*-
+"""K_Means_Diverse_Stock_Portfolio_2 (1).ipynb
 
-# Automatically generated by Colaboratory.
+Automatically generated by Colaboratory.
 
-# Original file is located at
-#     https://colab.research.google.com/drive/1NPEDAGzPrwlOCZWeKLRCszN7B753YmZ1
-# """
+Original file is located at
+    https://colab.research.google.com/drive/1NPEDAGzPrwlOCZWeKLRCszN7B753YmZ1
+"""
 
-# # pip install yahooquery pandas_ta
+# pip install yahooquery pandas_ta
 
-# import pandas as pd
-# import numpy as np
-# from sklearn.cluster import KMeans
-# import matplotlib.pyplot as plt
-# from pandas.io.excel import read_excel
-# from pandas_datareader import data as pdr
-# import yfinance as yf
-# import pandas as pd
-# from yahooquery import search
-# import datetime
+import pandas as pd
+import numpy as np
+from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
+from pandas.io.excel import read_excel
+from pandas_datareader import data as pdr
+import yfinance as yf
+import pandas as pd
+from yahooquery import search
+import datetime
 # from google.colab import files
 
 # list_sp = files.upload()
 # file_name1 = next(iter(list_sp))
-# df_green = pd.read_excel(file_name1)
-# df_green = df_green['name']
-# plt.style.use('fivethirtyeight')
+df_green = pd.read_excel("output.xlsx", engine='openpyxl')
+df_green = df_green['name']
+plt.style.use('fivethirtyeight')
 
-# def stock_universe(tickers, start_date, end_date):
-#   start_date = datetime.datetime.strptime(start_date, "%Y-%m-%d")
-#   end_date = datetime.datetime.strptime(end_date, "%Y-%m-%d")
+def stock_universe(tickers, start_date, end_date):
+  start_date = datetime.datetime.strptime(start_date, "%Y-%m-%d")
+  end_date = datetime.datetime.strptime(end_date, "%Y-%m-%d")
 
-#   data = pdr.get_data_yahoo(tickers, start=start_date, end=end_date, period="1d")
+  data = pdr.get_data_yahoo(tickers, start=start_date, end=end_date, period="1d")
 
-#   # Use the 'Adj Close' column to get the closing prices
-#   data = data['Close']
+  # Use the 'Adj Close' column to get the closing prices
+  data = data['Close']
 
-#   return data
+  return data
 
 
-# ticker = 'AAPL'
-# # convert the Df to a list for creating the universe
-# ticker_symbols = df_g.tolist()
-# start_date = "2018-01-01"
-# end_date = "2023-09-10"
-# stock_data = stock_universe(ticker_symbols, start_date, end_date)
+ticker = 'AAPL'
+# convert the Df to a list for creating the universe
+ticker_symbols = df_g.tolist()
+start_date = "2018-01-01"
+end_date = "2023-09-10"
+stock_data = stock_universe(ticker_symbols, start_date, end_date)
 
-# # # print(data.head())
-# # # print('High' in data)
-# # # print('Low' in data)
+# # print(data.head())
+# # print('High' in data)
+# # print('Low' in data)
 
-# yf.pdr_override()
-# def stock_universe(tickers, start_date, end_date):
-#   """
-#   This function searchs and get the information from the yahoo finance for the
-#   adj price
+yf.pdr_override()
+def stock_universe(tickers, start_date, end_date):
+  """
+  This function searchs and get the information from the yahoo finance for the
+  adj price
 
-#   Args:
-#     tickers = List data type of list of all of the stocks tickers
-#     start_date = String formart and YYYY-MM-DD
-#     end_date = String formart and YYYY-MM-DD
+  Args:
+    tickers = List data type of list of all of the stocks tickers
+    start_date = String formart and YYYY-MM-DD
+    end_date = String formart and YYYY-MM-DD
 
-#   returns:
-#     data = returns DataFrame of all the stocks and the adj price
-#   """
+  returns:
+    data = returns DataFrame of all the stocks and the adj price
+  """
 
-#   start_date = datetime.datetime.strptime(start_date, "%Y-%m-%d")
-#   end_date = datetime.datetime.strptime(end_date, "%Y-%m-%d")
+  start_date = datetime.datetime.strptime(start_date, "%Y-%m-%d")
+  end_date = datetime.datetime.strptime(end_date, "%Y-%m-%d")
 
-#   data = pdr.get_data_yahoo(tickers, start=start_date, end=end_date, period="1d")
+  data = pdr.get_data_yahoo(tickers, start=start_date, end=end_date, period="1d")
 
-#   # Use the 'Adj Close' column to get the closing prices
-#   data = data['Close']
+  # Use the 'Adj Close' column to get the closing prices
+  data = data['Close']
 
-#   return data
+  return data
 
-# def get_ticker(df):
-#     """
-#     This function takes a dataframe with the list of company names and returns a dataframe with the corresponding tickers.
+def get_ticker(df):
+    """
+    This function takes a dataframe with the list of company names and returns a dataframe with the corresponding tickers.
 
-#     Args:
-#         df (DataFrame): A dataframe containing company names.
+    Args:
+        df (DataFrame): A dataframe containing company names.
 
-#     Returns:
-#         df_tickers (DataFrame): A dataframe with tickers.
-#     """
-#     # Create a new dataframe with uppercase company names
-#     df_upper_case = pd.DataFrame(df)
-#     df_upper_case['comps'] = df.str.upper()
+    Returns:
+        df_tickers (DataFrame): A dataframe with tickers.
+    """
+    # Create a new dataframe with uppercase company names
+    df_upper_case = pd.DataFrame(df)
+    df_upper_case['comps'] = df.str.upper()
 
-#     # Create columns for info and tickers
-#     df_upper_case['info'] = ''
-#     df_upper_case['tickers'] = ''
+    # Create columns for info and tickers
+    df_upper_case['info'] = ''
+    df_upper_case['tickers'] = ''
 
-#     # Search for tickers by name
-#     for i, row in df_upper_case.iterrows():
-#         search_results = search(row['comps'])
-#         if 'quotes' in search_results:
-#             quotes = search_results['quotes']
-#             if quotes:
-#                 df_upper_case.at[i, 'info'] = quotes[0]
-#                 df_upper_case.at[i, 'tickers'] = quotes[0]['symbol']
+    # Search for tickers by name
+    for i, row in df_upper_case.iterrows():
+        search_results = search(row['comps'])
+        if 'quotes' in search_results:
+            quotes = search_results['quotes']
+            if quotes:
+                df_upper_case.at[i, 'info'] = quotes[0]
+                df_upper_case.at[i, 'tickers'] = quotes[0]['symbol']
 
-#     return df_upper_case
+    return df_upper_case
 
-# # Lets get the ticker information since the data is provided only with
-# # the name of the stock and the functiona nd yfinance only takes tickers
-# df_green['ticker'] = get_ticker(df_green)
-# # # print(df_green['ticker']['tickers'])
+# Lets get the ticker information since the data is provided only with
+# the name of the stock and the functiona nd yfinance only takes tickers
+df_green['ticker'] = get_ticker(df_green)
+# # print(df_green['ticker']['tickers'])
 
-# # Here we gather quite a lot of information and we filter it for better use
-# df_g = df_green['ticker']['tickers']
+# Here we gather quite a lot of information and we filter it for better use
+df_g = df_green['ticker']['tickers']
 
-# # convert the Df to a list for creating the universe
-# ticker_symbols = df_g.tolist()
-# start_date = "2018-01-01"
-# end_date = "2023-09-10"
-# stock_data = stock_universe(ticker_symbols, start_date, end_date)
+# convert the Df to a list for creating the universe
+ticker_symbols = df_g.tolist()
+start_date = "2018-01-01"
+end_date = "2023-09-10"
+stock_data = stock_universe(ticker_symbols, start_date, end_date)
 
-# # # print(ticker_symbols)
+# # print(ticker_symbols)
 
-# # # print(stock_data.columns)
+# # print(stock_data.columns)
 
-# # create a new and more clean DF, drop all the columns that are not stocks
-# clean_g = stock_data[stock_data.columns[~stock_data.columns.str.contains('\.')]]
-# # # print(clean_g.columns)
+# create a new and more clean DF, drop all the columns that are not stocks
+clean_g = stock_data[stock_data.columns[~stock_data.columns.str.contains('\.')]]
+# # print(clean_g.columns)
 
-# # Drop all the empty columns
-# clean_g = clean_g.dropna(axis=1, how='all')
-# # # print(clean_g.columns)
+# Drop all the empty columns
+clean_g = clean_g.dropna(axis=1, how='all')
+# # print(clean_g.columns)
 
-# # Calculte the annual mean returns and variances
-# daily_returns = clean_g.pct_change()
-# annual_mean_returns = daily_returns.mean() * 252
-# annual_return_variance = daily_returns.var() * 252
+# Calculte the annual mean returns and variances
+daily_returns = clean_g.pct_change()
+annual_mean_returns = daily_returns.mean() * 252
+annual_return_variance = daily_returns.var() * 252
 
-# # Create a new dataframe
-# df = pd.DataFrame(clean_g.columns, columns=['ticker'])
-# ## print(df)
-# df['Variances'] = annual_return_variance.values
-# df['Returns'] = annual_mean_returns.values
-# # # print(df)
+# Create a new dataframe
+df = pd.DataFrame(clean_g.columns, columns=['ticker'])
+## print(df)
+df['Variances'] = annual_return_variance.values
+df['Returns'] = annual_mean_returns.values
+# # print(df)
 
-# # import pandas_ta as ta
-# '''
-# from scipy.stats import linregress
 # import pandas_ta as ta
+'''
+from scipy.stats import linregress
+import pandas_ta as ta
 
-# def get_slope(array):
-#     y = np.array(array)
-#     x = np.arange(len(y))
-#     slope, intercept, r_value, p_value, std_err = linregress(x,y)
-#     return slope
-
-
-# backrolling_n= 12
-
-# #df['ATR'] = clean_g.ta.atr(length = 15)
-# df['MA200'] = clean_g.ta.ema(length=200)
-# df['slopeMA200'] = df['MA200'].rolling(window=backrolling_n).apply(get_slope, raw=True)
-# df['RSI'] = clean_g.ta.rsi(length = 13)
-# df['slopeATR'] = df['ATR'].rolling(window=backrolling_n).apply(get_slope, raw=True)
-# '''
-
-# nan_count = df.isna().sum().sum()
-# # print(nan_count)
-# df = df.dropna()
-# nan_count = df.isna().sum().sum()
-# # print(nan_count)
-
-# # Use elbow method to determine the number of clusters to model the stock data
-# X = df[['Returns','Variances']].values
-# inertia_list = []
-# for k in range (2, 30):
-#   kmeans = KMeans(n_clusters=k)
-#   kmeans.fit(X)
-#   inertia_list.append(kmeans.inertia_)
-
-# plt.plot(range(2,30), inertia_list)
-# plt.show()
-
-# # Get the labels and the groups
-# kmeans = KMeans(n_clusters=15).fit(X)
-# labels = kmeans.labels_
-# df['clusters'] = labels
-
-# # Plot the Scaretter clusters
-# plt.scatter(X[:,0], X[:,1], c=labels,cmap = 'rainbow')
-# plt.xlabel('Returns')
-# plt.ylabel('Variance')
-# plt.xlim(0,1)
-# plt.ylim(0,1)
-# plt.show()
-
-# # create the function to create a simple diversified portafolio
-# def div_port(df):
-#     # Group the DataFrame by the 'clusters' column and select the first row for each group
-#     result_df = df.groupby('clusters').head(1)[['ticker', 'clusters']]
-#     return result_df['ticker']
-# portfolio = div_port(df)
-# # print(portfolio)
-
-# """# **Now tha we have a portfolio, lets decide how much of each stock we will invest**"""
-
-# def stock_universe_adj(tickers, start_date, end_date):
-#   """
-#   This function searchs and get the information from the yahoo finance for the
-#   adj price
-
-#   Args:
-#     tickers = List data type of list of all of the stocks tickers
-#     start_date = String formart and YYYY-MM-DD
-#     end_date = String formart and YYYY-MM-DD
-
-#   returns:
-#     data = returns DataFrame of all the stocks and the adj price
-#   """
-
-#   start_date = datetime.datetime.strptime(start_date, "%Y-%m-%d")
-#   end_date = datetime.datetime.strptime(end_date, "%Y-%m-%d")
-
-#   data = pdr.get_data_yahoo(tickers, start=start_date, end=end_date, period="1d")
-
-#   # Use the 'Adj Close' column to get the closing prices
-#   data = data['Adj Close']
-
-#   return data
-# assets = portfolio.tolist()
-# ## print(assets)
-
-# result_array = np.full(14, 0.071428)
+def get_slope(array):
+    y = np.array(array)
+    x = np.arange(len(y))
+    slope, intercept, r_value, p_value, std_err = linregress(x,y)
+    return slope
 
 
-# ## print(result_array)
-# opt_portfolio = pd.DataFrame()
+backrolling_n= 12
 
-# opt_portfolio = stock_universe_adj(assets,start_date, end_date)
+#df['ATR'] = clean_g.ta.atr(length = 15)
+df['MA200'] = clean_g.ta.ema(length=200)
+df['slopeMA200'] = df['MA200'].rolling(window=backrolling_n).apply(get_slope, raw=True)
+df['RSI'] = clean_g.ta.rsi(length = 13)
+df['slopeATR'] = df['ATR'].rolling(window=backrolling_n).apply(get_slope, raw=True)
+'''
 
-# # print(result_array)
-# opt_portfolio = opt_portfolio.drop('VFS', axis=1)
+nan_count = df.isna().sum().sum()
+# print(nan_count)
+df = df.dropna()
+nan_count = df.isna().sum().sum()
+# print(nan_count)
 
-# ## print(opt_portfolio)
-# tmp = opt_portfolio
-# #tmp = np.cumsum(tmp)
-# plt.plot(tmp)
-# plt.show()
+# Use elbow method to determine the number of clusters to model the stock data
+X = df[['Returns','Variances']].values
+inertia_list = []
+for k in range (2, 30):
+  kmeans = KMeans(n_clusters=k)
+  kmeans.fit(X)
+  inertia_list.append(kmeans.inertia_)
 
-# #lets get the simple daily return
-# returns = tmp.pct_change()
+plt.plot(range(2,30), inertia_list)
+plt.show()
 
-# # Lets get the coveriance
-# cov_matrix_anual = returns.cov() *252
-# # print(cov_matrix_anual) #< the sqrt of this coveriance between prices is the volatility
+# Get the labels and the groups
+kmeans = KMeans(n_clusters=15).fit(X)
+labels = kmeans.labels_
+df['clusters'] = labels
 
-# # Let calculare the portfolio variance
+# Plot the Scaretter clusters
+plt.scatter(X[:,0], X[:,1], c=labels,cmap = 'rainbow')
+plt.xlabel('Returns')
+plt.ylabel('Variance')
+plt.xlim(0,1)
+plt.ylim(0,1)
+plt.show()
 
-# port_variance = np.dot(result_array.T,np.dot(cov_matrix_anual,result_array))
-# # print(port_variance)
-# port_vol = np.sqrt(port_variance)
-# # print(port_vol)
+# create the function to create a simple diversified portafolio
+def div_port(df):
+    # Group the DataFrame by the 'clusters' column and select the first row for each group
+    result_df = df.groupby('clusters').head(1)[['ticker', 'clusters']]
+    return result_df['ticker']
+portfolio = div_port(df)
+# print(portfolio)
 
-# # Lets calculate Yearly return
-# port_simple_annual_return = np.sum(returns.mean() * result_array) * 252
-# # print(f"portfolio Anual Return is {port_simple_annual_return}")
+"""# **Now tha we have a portfolio, lets decide how much of each stock we will invest**"""
 
-# per_var = str(round(port_variance, 2)*100)
-# per_volatility = str(round(port_vol,2)*100)
-# per_returns = str(round(port_simple_annual_return,2)*100)
+def stock_universe_adj(tickers, start_date, end_date):
+  """
+  This function searchs and get the information from the yahoo finance for the
+  adj price
 
-# # print(f"Expected annual return {per_returns}")
-# # print(f"Expected risk {per_volatility}")
-# # print(f"Annual variance {per_var}")
+  Args:
+    tickers = List data type of list of all of the stocks tickers
+    start_date = String formart and YYYY-MM-DD
+    end_date = String formart and YYYY-MM-DD
 
-# from pypfopt.efficient_frontier import EfficientFrontier
-# from pypfopt import risk_models
-# from pypfopt import expected_returns
+  returns:
+    data = returns DataFrame of all the stocks and the adj price
+  """
 
-# # Portfolio optimization
+  start_date = datetime.datetime.strptime(start_date, "%Y-%m-%d")
+  end_date = datetime.datetime.strptime(end_date, "%Y-%m-%d")
 
-# mu = expected_returns.mean_historical_return(tmp)
-# S = risk_models.sample_cov(tmp)
+  data = pdr.get_data_yahoo(tickers, start=start_date, end=end_date, period="1d")
 
-# # lets get the best sharpe ratio possible
+  # Use the 'Adj Close' column to get the closing prices
+  data = data['Adj Close']
 
-# ef = EfficientFrontier(mu, S)
+  return data
+assets = portfolio.tolist()
+## print(assets)
 
-# w = ef.max_sharpe()
+result_array = np.full(14, 0.071428)
 
-# new_w = ef.clean_weights()
-# print(new_w)
-# ef.portfolio_performance(verbose=True)
+
+## print(result_array)
+opt_portfolio = pd.DataFrame()
+
+opt_portfolio = stock_universe_adj(assets,start_date, end_date)
+
+# print(result_array)
+opt_portfolio = opt_portfolio.drop('VFS', axis=1)
+
+## print(opt_portfolio)
+tmp = opt_portfolio
+#tmp = np.cumsum(tmp)
+plt.plot(tmp)
+plt.show()
+
+#lets get the simple daily return
+returns = tmp.pct_change()
+
+# Lets get the coveriance
+cov_matrix_anual = returns.cov() *252
+# print(cov_matrix_anual) #< the sqrt of this coveriance between prices is the volatility
+
+# Let calculare the portfolio variance
+
+port_variance = np.dot(result_array.T,np.dot(cov_matrix_anual,result_array))
+# print(port_variance)
+port_vol = np.sqrt(port_variance)
+# print(port_vol)
+
+# Lets calculate Yearly return
+port_simple_annual_return = np.sum(returns.mean() * result_array) * 252
+# print(f"portfolio Anual Return is {port_simple_annual_return}")
+
+per_var = str(round(port_variance, 2)*100)
+per_volatility = str(round(port_vol,2)*100)
+per_returns = str(round(port_simple_annual_return,2)*100)
+
+# print(f"Expected annual return {per_returns}")
+# print(f"Expected risk {per_volatility}")
+# print(f"Annual variance {per_var}")
+
+from pypfopt.efficient_frontier import EfficientFrontier
+from pypfopt import risk_models
+from pypfopt import expected_returns
+
+# Portfolio optimization
+
+mu = expected_returns.mean_historical_return(tmp)
+S = risk_models.sample_cov(tmp)
+
+# lets get the best sharpe ratio possible
+
+ef = EfficientFrontier(mu, S)
+
+w = ef.max_sharpe()
+
+new_w = ef.clean_weights()
+print(new_w)
+ef.portfolio_performance(verbose=True)

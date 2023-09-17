@@ -1,0 +1,17 @@
+[
+    {
+        "name": "APPL",
+        "price": "$32",
+        "shares": 32
+    },
+    {
+        "name": "GOOG",
+        "price": "$2700",
+        "shares": 15
+    },
+    {
+        "name": "TSLA",
+        "price": "$800",
+        "shares": 20
+    }
+]
