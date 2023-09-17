@@ -75,11 +75,11 @@ body {
     color: #58641d;
     display: flex;
     justify-content: space-between;
-    padding: 7% 5%;
+    padding: 7% 6%;
 }
 
 .intro-titles h1 {
-    font-size: 40px;
+    font-size: 48px;
 }
 
 .companies {
