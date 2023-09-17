@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/ShellHack/static/css/main.d88481f6.css",
+    "main.js": "/ShellHack/static/js/main.4eba6bcc.js",
+    "static/media/photo3.jpeg": "/ShellHack/static/media/photo3.0ab64c929390a3cc9613.jpeg",
+    "static/media/tree2.jpeg": "/ShellHack/static/media/tree2.33ee4bce16512575a0a7.jpeg",
+    "static/media/photo1.jpeg": "/ShellHack/static/media/photo1.cb6b3291fa8da8cfbeb4.jpeg",
+    "static/media/companies.png": "/ShellHack/static/media/companies.54d3cb386a4b235e18c7.png",
+    "static/media/verde_logo.png": "/ShellHack/static/media/verde_logo.dc30ab5497cb5e7964a4.png",
+    "static/media/graph.png": "/ShellHack/static/media/graph.c4af1b804bf8e51e467c.png",
+    "static/media/photo2.jpeg": "/ShellHack/static/media/photo2.195c7553a4a78f4bc090.jpeg",
+    "static/media/photo4.jpeg": "/ShellHack/static/media/photo4.cfefe8a4035ee8069fba.jpeg",
+    "index.html": "/ShellHack/index.html",
+    "main.d88481f6.css.map": "/ShellHack/static/css/main.d88481f6.css.map",
+    "main.4eba6bcc.js.map": "/ShellHack/static/js/main.4eba6bcc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d88481f6.css",
+    "static/js/main.4eba6bcc.js"
+  ]
+}
