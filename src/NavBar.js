@@ -1,6 +1,6 @@
 import "./styles/NavBar.css"
 import "./styles/Home.css"
-import Green from "./images/green.png"
+import Green from "./images/vLogo.png"
 import {Link} from "react-router-dom"
 
 const NavBar = () => {

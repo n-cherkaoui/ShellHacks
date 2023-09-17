@@ -1,4 +1,5 @@
 import NavBar from "./NavBar";
+import FirstTable from "./FirstTable";
 import "./styles/Home.css";
 import "./styles/Showcase.css";
 import {useState} from "react";
@@ -26,9 +27,7 @@ const Showcase = () => {
                             <h2>Shares</h2>
                         </div> 
 
-                        <h2>Hola</h2>
-
-                        <h2>Gon</h2>
+                        <h1>===PUT THE TABLE MAP HERE===</h1>
                     </div>
                     
 

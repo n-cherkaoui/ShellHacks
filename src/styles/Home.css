@@ -35,6 +35,10 @@ body {
     font-family: 'Roboto Slab', serif;
 }
 
+.left-home-logo h1 {
+    margin-left: 15px;
+}
+
 .home-title {
     text-align: center;
     color: #dbd2e0;
