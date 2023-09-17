@@ -11,12 +11,22 @@ const Showcase = () => {
     const [firstArray, setFirstArray] = useState([]);
 
     const fetchData = async () => {
-        const response = await api.get("/stocks");
-        console.log(response.data)
-        setFirstArray(response.data)
-        console.log(firstArray)
-    };
-
+        try {
+          // Use 'http' instead of 'https' for mixed content
+          const response = await fetch("http://192.34.63.8:5080/stocks");
+          if (response.ok) {
+            const data = await response.json();
+            console.log(data);
+            setFirstArray(data);
+            console.log(firstArray);
+          } else {
+            console.error("Failed to fetch data");
+          }
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      };
+      
     return (
         <div>
             <NavBar></NavBar>
